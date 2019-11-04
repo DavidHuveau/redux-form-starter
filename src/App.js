@@ -1,11 +1,15 @@
 import React from 'react';
 import './App.css';
-import LoginForm from "./components/LoginForm";
+import SigninContainer from './containers/SigninContainer';
 
-function App() {
+const onSubmit = values => {
+  console.log('Form data: ', values);
+};
+
+const App = () => {
   return (
     <div className="App">
-      <LoginForm></LoginForm>
+      <SigninContainer onSubmit={onSubmit}/>
     </div>
   );
 }

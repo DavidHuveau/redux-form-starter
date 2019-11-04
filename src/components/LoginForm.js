@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./LoginForm.css";
 import { Field } from 'redux-form';
-// import { ReduxInput } from './controls';
 import { reduxForm } from 'redux-form';
 
-const LoginForm = () => {
+const LoginForm = props => {
+  const { onSubmit, handleSubmit } = props
   return (
-    <form className="form-example">
+    <form className="form-example" onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label htmlFor="name">Name</label>
         <Field name="name" component="input" type="text" />
@@ -30,7 +30,4 @@ const LoginForm = () => {
     </form>)
 }
 
-// export default LoginForm;
-export default reduxForm({
-  form: 'formname'
-})(LoginForm);
+export default LoginForm;
