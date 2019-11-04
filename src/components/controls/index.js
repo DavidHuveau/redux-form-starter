@@ -1,10 +1,10 @@
 import React from 'react';
 
 const ReduxInput = ({ input, label, type, meta: { touched, error } }) => (
-  <div className="form-example">
+  // console.log();
+  <div>
     <label htmlFor={label}>{label}</label>
-    {touched && error && <span className="error">{error.message}</span>}
-    <input type={type} name={label} id={label} required/>
+    <input {...input} type={type} name={label} />
   </div>
 );
 

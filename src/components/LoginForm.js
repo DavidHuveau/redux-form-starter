@@ -1,33 +1,28 @@
 import React, { Component } from "react";
 import "./LoginForm.css";
-import { Field } from 'redux-form';
-import { reduxForm } from 'redux-form';
+import { Field } from "redux-form";
+import { ReduxInput } from "./controls";
 
 const LoginForm = props => {
-  const { onSubmit, handleSubmit } = props
+  const { onSubmit, handleSubmit } = props;
   return (
     <form className="form-example" onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <label htmlFor="name">Name</label>
-        <Field name="name" component="input" type="text" />
+        <label htmlFor="firstName">First Name</label>
+        <Field name="firstName" component="input" type="text" />
+      </div>
+      <div>
+        <label htmlFor="lastName">Last Name</label>
+        <Field name="lastName" component="input" type="text" />
       </div>
       <div>
         <label htmlFor="password">Password</label>
         <Field name="password" component="input" type="password" />
       </div>
-      <button type="submit">Submit</button>
-      {/* <div className="form-example">
-      <label htmlFor="name">Enter your name:</label>
-      <input type="text" name="name" id="name" required onChange={ this.handleInput }/>
-    </div>
-    <div className="form-example">
-      <label htmlFor="password">Enter your password: </label>
-      <input type="password" name="password" id="password" required onChange={ this.handleInput }/>
-    </div>
-    <div className="form-example">
-      <input type="submit" value="Subscribe!" />
-    </div> */}
-    </form>)
-}
+      <Field name="status" component={ReduxInput} type="text" label="Status"/>
+      <button type="submit">Subscribe!</button>
+    </form>
+  );
+};
 
 export default LoginForm;
